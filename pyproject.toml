@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "jax-aotools"
+version = "0.1.0"
+description = "JAX-based numerical tools for adaptive-optics-style optical propagation and analysis."
+readme = "README.md"
+requires-python = ">=3.7"
+license = {text = "MIT"}
+authors = [
+  {name = "Jax-AOtools contributors"}
+]
+dependencies = [
+  "aotools",
+  "jax",
+  "jaxlib",
+  "matplotlib",
+  "numpy",
+  "scipy",
+]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Topic :: Scientific/Engineering :: Physics",
+]
+
+[project.optional-dependencies]
+examples = [
+  "opencv-python",
+  "numba",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+include-package-data = false
+
+[tool.setuptools.packages.find]
+where = ["src"]

@@ -1,0 +1,153 @@
+{
+  "environment": {
+    "python": "3.7.12",
+    "platform": "Windows-10-10.0.19041-SP0",
+    "jax_version": "0.3.25",
+    "jax_devices": [
+      "gpu:0"
+    ]
+  },
+  "phase_screen": {
+    "N": 256,
+    "batch_size": 64,
+    "parameters": {
+      "r0": 0.05,
+      "delta": 0.00390625,
+      "L0": 300.0,
+      "l0": 0.001
+    },
+    "timing_seconds": {
+      "jax_fft_batch_mean": 0.0036090200000000296,
+      "jax_fft_batch_std": 0.0007820492091932468,
+      "jax_nested_subharmonic_batch_mean": 0.018436159999999903,
+      "jax_nested_subharmonic_batch_std": 0.0019398995186349413,
+      "jax_outer_scale_subharmonic_batch_mean": 0.008297519999999992,
+      "jax_outer_scale_subharmonic_batch_std": 0.0005521552513556886,
+      "aotools_subharmonic_loop_mean": 8.113785433333332,
+      "aotools_subharmonic_loop_std": 0.5900556252380177
+    },
+    "fps": {
+      "jax_fft": 17733.345894453196,
+      "jax_nested_subharmonic": 3471.4387377848934,
+      "jax_outer_scale_subharmonic": 7713.148024952041,
+      "aotools_subharmonic": 7.8878102614191645
+    },
+    "speedup_vs_aotools": {
+      "jax_fft": 2248.1963062918094,
+      "jax_nested_subharmonic": 440.1017041148143,
+      "jax_outer_scale_subharmonic": 977.8566889062442
+    },
+    "statistics": {
+      "jax_outer_scale_phase_mean": -3.889203071594238e-06,
+      "jax_outer_scale_phase_std": 12.579038619995117,
+      "aotools_phase_mean": 1.214306433183765e-16,
+      "aotools_phase_std": 12.014279034595743
+    }
+  },
+  "propagation": {
+    "N": 256,
+    "batch_size": 64,
+    "parameters": {
+      "wavelength": 5e-07,
+      "delta": 0.00390625,
+      "z": 50.0
+    },
+    "timing_seconds": {
+      "jax_angular_spectrum_batch_mean": 0.004169688888888048,
+      "jax_angular_spectrum_batch_std": 0.0010190159135651184,
+      "aotools_angular_spectrum_loop_mean": 1.4308973666666656,
+      "aotools_angular_spectrum_loop_std": 0.08557444162031562
+    },
+    "fps": {
+      "jax_angular_spectrum": 15348.866955171614,
+      "aotools_angular_spectrum": 44.72717714834478
+    },
+    "speedup_vs_aotools": 343.166457929251,
+    "relative_l2_first_frame": 2.868511876303041e-07
+  },
+  "scalar_interpolation": {
+    "input_grid": [
+      384,
+      384
+    ],
+    "output_grid": [
+      2048,
+      2048
+    ],
+    "timing_seconds": {
+      "jax_bicubic_mean": 0.011408716666666171,
+      "jax_bicubic_std": 0.000809147216553554,
+      "scipy_rect_bivariate_spline_mean": 0.08473190000000368,
+      "scipy_rect_bivariate_spline_std": 0.002199747490055902
+    },
+    "fps": {
+      "jax_bicubic": 87.65227757139293,
+      "scipy_rect_bivariate_spline": 11.80193055980046
+    },
+    "speedup_vs_scipy": 7.426944017951831,
+    "accuracy_vs_analytic": {
+      "jax_relative_l2": 4.713540011508757e-06,
+      "jax_max_abs": 9.879469871520996e-06,
+      "scipy_relative_l2": 2.922418201011502e-07,
+      "scipy_max_abs": 1.753824017791672e-06
+    }
+  },
+  "functional_interpolation": {
+    "input_grid": [
+      48,
+      48
+    ],
+    "output_grid": [
+      192,
+      192
+    ],
+    "functional_patch": [
+      16,
+      16
+    ],
+    "output_shape": [
+      192,
+      192,
+      16,
+      16
+    ],
+    "baseline": "scipy.interpolate.RegularGridInterpolator, linear, vector-valued values",
+    "timing_seconds": {
+      "jax_functional_bicubic_mean": 0.015692942857136977,
+      "jax_functional_bicubic_std": 0.0005325198503503099,
+      "scipy_regular_grid_linear_mean": 0.14214226666666718,
+      "scipy_regular_grid_linear_std": 0.010359420868732776
+    },
+    "fps": {
+      "jax_functional_bicubic": 63.72291093542159,
+      "scipy_regular_grid_linear": 7.035205104369587
+    },
+    "speedup_vs_scipy": 9.057718998958977,
+    "relative_l2_between_methods": 0.006682395067960478
+  },
+  "rough_surface": {
+    "N": 256,
+    "batch_size": 64,
+    "parameters": {
+      "target_std": 2.5e-07,
+      "correlation_length": 0.025,
+      "delta": 0.00390625
+    },
+    "baseline": "NumPy FFT implementation of the same Gaussian power-spectrum method",
+    "timing_seconds": {
+      "jax_coarse_surface_batch_mean": 0.0036626500000007667,
+      "jax_coarse_surface_batch_std": 0.0005826325085353983,
+      "numpy_fft_surface_batch_mean": 0.5430911000000075,
+      "numpy_fft_surface_batch_std": 0.00694299202697408
+    },
+    "fps": {
+      "jax_coarse_surface": 17473.68708448435,
+      "numpy_fft_surface": 117.8439492011545
+    },
+    "speedup_vs_numpy": 148.27818655888328,
+    "statistics": {
+      "jax_std": 5.55337862806482e-07,
+      "numpy_std": 5.538136665208771e-07
+    }
+  }
+}
