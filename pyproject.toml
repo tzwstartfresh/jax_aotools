@@ -36,7 +36,5 @@ examples = [
 
 [tool.setuptools]
 package-dir = {"" = "src"}
+py-modules = ["jax_aotools", "Jax_Interp2D", "Jax_Interp2DMtx", "Jax_Tools"]
 include-package-data = false
-
-[tool.setuptools.packages.find]
-where = ["src"]

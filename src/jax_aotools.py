@@ -1,8 +1,8 @@
 """Jax-AOtools: JAX-based tools for adaptive-optics-style simulations."""
 
-from .Jax_Interp2D import jax_interp2d
-from .Jax_Interp2DMtx import jax_interp_2dmtx
-from .Jax_Tools import (
+from Jax_Interp2D import jax_interp2d
+from Jax_Interp2DMtx import jax_interp_2dmtx
+from Jax_Tools import (
     angularSpectrum_jax,
     auto_random,
     coarse_surface,

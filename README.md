@@ -4,13 +4,13 @@ Jax-AOtools is a JAX-based Python package for adaptive-optics-style optical
 propagation, atmospheric phase-screen generation, interpolation, and related
 simulation utilities.
 
-The installable package lives under `src/jax_aotools/`. The `examples/` and
+The installable modules live directly under `src/`. The `examples/` and
 `validation/` directories are repository materials for demonstrations and
 reproducibility; they are not part of the installed Python package.
 
 ## Layout
 
-- `src/jax_aotools/`: installable Python package.
+- `src/`: installable Python modules.
 - `examples/ghost_imaging/`: long-range computational ghost imaging example.
 - `examples/anisoplanatic_imaging/`: anisoplanatic imaging example.
 - `examples/quantum_key_distribution/`: spatially encoded free-space QKD example.
