@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 SCRIPT_DIR = Path(__file__).resolve().parent
-from jax_aotools import (
+from Jax_Tools import (
     angularSpectrum_jax,
     auto_random,
     coarse_surface,

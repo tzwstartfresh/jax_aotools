@@ -10,7 +10,7 @@ import numpy as np
 from scipy.special import eval_genlaguerre
 
 SCRIPT_DIR = Path(__file__).resolve().parent
-from jax_aotools import angularSpectrum_jax, ft_sh_phase_screen_jax_outer_scale
+from Jax_Tools import angularSpectrum_jax, ft_sh_phase_screen_jax_outer_scale
 
 
 @dataclass

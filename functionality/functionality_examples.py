@@ -27,7 +27,9 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
 SCRIPT_DIR = Path(__file__).resolve().parent
-from jax_aotools import (
+from Jax_Interp2D import jax_interp2d
+from Jax_Interp2DMtx import jax_interp_2dmtx
+from Jax_Tools import (
     angularSpectrum_jax,
     auto_random,
     coarse_surface,
@@ -35,8 +37,6 @@ from jax_aotools import (
     ft_sh_phase_screen_jax_nested,
     ft_sh_phase_screen_jax_outer_scale,
     gauss_beam,
-    jax_interp2d,
-    jax_interp_2dmtx,
     lensAgainst_jax,
     oneStepFresnel_jax,
     twoStepFresnel_jax,

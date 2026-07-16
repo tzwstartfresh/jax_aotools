@@ -11,7 +11,8 @@ import numba as nb
 import numpy as np
 
 SCRIPT_DIR = Path(__file__).resolve().parent
-from jax_aotools import auto_random, ft_sh_phase_screen_jax_outer_scale, jax_interp2d
+from Jax_Interp2D import jax_interp2d
+from Jax_Tools import auto_random, ft_sh_phase_screen_jax_outer_scale
 
 
 def load_bicubic_conversion_matrix(path=None):

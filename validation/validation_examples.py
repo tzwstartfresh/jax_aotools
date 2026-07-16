@@ -29,15 +29,15 @@ import numpy as np
 from scipy.interpolate import RectBivariateSpline, RegularGridInterpolator
 
 SCRIPT_DIR = Path(__file__).resolve().parent
-from jax_aotools import (
+from Jax_Interp2D import jax_interp2d
+from Jax_Interp2DMtx import jax_interp_2dmtx
+from Jax_Tools import (
     angularSpectrum_jax,
     coarse_surface,
     ft_phase_screen_jaxbase,
     ft_sh_phase_screen_jax_nested,
     ft_sh_phase_screen_jax_outer_scale,
     gauss_beam,
-    jax_interp2d,
-    jax_interp_2dmtx,
 )
 
 OUTDIR = SCRIPT_DIR / "results"
