@@ -20,6 +20,27 @@ reproducibility; they are not part of the installed Python package.
 Each example folder contains its script, required local input data, and a
 `results/` directory with the generated output files.
 
+## Dependencies
+
+Jax-AOtools requires Python 3.7 or later. The core package depends on:
+
+- `aotools`
+- `jax`
+- `jaxlib`
+- `matplotlib`
+- `numpy`
+- `scipy`
+
+The example scripts additionally use:
+
+- `opencv-python`
+- `numba`
+
+These dependencies are declared in `pyproject.toml`. Installing the package
+with `pip install -e .` installs the core dependencies, while
+`pip install -e ".[examples]"` also installs the optional example
+dependencies.
+
 ## Installation
 
 For local development, install the package from the repository root:
