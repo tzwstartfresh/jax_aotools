@@ -58,10 +58,12 @@ pip install -e ".[examples]"
 After installation, the core functions can be imported as:
 
 ```python
-from Jax_Tools import angularSpectrum_jax, ft_sh_phase_screen_jax_outer_scale
-from Jax_Interp2D import jax_interp2d
-from Jax_Interp2DMtx import jax_interp_2dmtx
+from jax_aotools import angularSpectrum_jax, ft_sh_phase_screen_jax_outer_scale
+from jax_aotools import jax_interp2d, jax_interp_2dmtx
 ```
+
+The implementation modules can also be imported directly from `Jax_Tools`,
+`Jax_Interp2D`, and `Jax_Interp2DMtx`.
 
 ## Example Commands
 
