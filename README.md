@@ -70,17 +70,18 @@ import jax
 import jax.numpy as jnp
 from jax_aotools import (
     angularSpectrum_jax,
+    auto_random,
     ft_sh_phase_screen_jax_outer_scale,
     gauss_beam,
 )
 
-key = jax.random.PRNGKey(0)
+phscrn_func = auto_random(ft_sh_phase_screen_jax_outer_scale)
 n = 256
 pixel_scale = 0.01  # Metres per pixel
 wavelength = 532e-9  # Metres
 
-phase, key = ft_sh_phase_screen_jax_outer_scale(
-    key, r0=0.15, N=n, delta=pixel_scale, L0=30.0, l0=0.01
+phase = phscrn_func(
+    r0=0.15, N=n, delta=pixel_scale, L0=30.0, l0=0.01
 )
 field = gauss_beam(n, pixel_scale, waist=0.2)
 field = field * jnp.exp(1j * phase)
@@ -93,10 +94,12 @@ print("Intensity shape:", intensity.shape)
 print("Available devices:", jax.devices())
 ```
 
-Lengths in this example are in metres and phase is in radians. Random
-generators return the generated array and an updated PRNG key. Reuse the
-returned key for subsequent calls. Phase-screen generators support batched
-generation through `batch_size`.
+Lengths in this example are in metres and phase is in radians. `auto_random`
+manages the PRNG key internally: create `phscrn_func` once and call it repeatedly
+to generate new screens without passing a key. By default, initialization uses
+a time-based seed. For reproducible sequences, use
+`phscrn_func = auto_random(ft_sh_phase_screen_jax_outer_scale, seed=0)`.
+Phase-screen generators support batched generation through `batch_size`.
 
 The scalar interpolator is available as `from jax_aotools import jax_interp2d`.
 Its constructor takes source coordinate vectors, sampled values, and a bicubic
