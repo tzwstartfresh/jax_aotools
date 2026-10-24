@@ -8,7 +8,7 @@ compilation. Hardware support depends on the installed JAX backend.
 ## Features
 
 - FFT-based atmospheric phase screens with nested sub-harmonic or
-  outer-scale-adaptive low-frequency compensation.
+  outer-scale-adaptive low-frequency sub-harmonic compensation.
 - One-step and two-step Fresnel propagation, angular-spectrum propagation,
   and focal-plane field calculation.
 - Bicubic interpolation of two-dimensional scalar fields.
