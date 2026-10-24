@@ -21,6 +21,8 @@ src/
     jax_aotools.py     # Public imports
     Jax_Tools.py       # Phase screens, propagation, and simulation utilities
     Jax_Interp2D.py    # Scalar-field interpolation
+data/
+    CVT_MTX.npy       # Bicubic coefficient conversion matrix
 pyproject.toml        # Package metadata and dependencies
 setup.py             # Setuptools entry point
 LICENSE
@@ -103,8 +105,22 @@ Phase-screen generators support batched generation through `batch_size`.
 
 The scalar interpolator is available as `from jax_aotools import jax_interp2d`.
 Its constructor takes source coordinate vectors, sampled values, and a bicubic
-coefficient conversion matrix (`cvt_ary`) supplied by the caller. Query
-coordinates must remain within the source grid.
+coefficient conversion matrix (`cvt_ary`). The matrix is provided in
+[`data/CVT_MTX.npy`](data/CVT_MTX.npy). Load it from the repository root:
+
+```python
+import numpy as np
+from jax_aotools import jax_interp2d
+
+cvt_ary = np.load("data/CVT_MTX.npy", allow_pickle=False)
+# xaxis, yaxis, and signal are the source coordinates and sampled scalar field.
+interpolator = jax_interp2d(xaxis, yaxis, signal, cvt_ary)
+values = interpolator.interp(xi, yi)
+```
+
+Query coordinates must remain within the source grid. The `data/` directory
+is a repository resource and is not installed by `pip`; retain the matrix
+file when using the interpolator outside the cloned repository.
 
 Implementation modules can also be imported directly from `Jax_Tools` and
 `Jax_Interp2D`.
