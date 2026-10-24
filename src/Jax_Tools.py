@@ -119,9 +119,6 @@ def ft_sh_phase_screen_jax_outer_scale(prngkey, r0, N, delta, L0, l0, batch_size
 
     return phs_lf + phs_hf, prngkey
 
-# Backward-compatible aliases for earlier drafts and example scripts.
-ft_sh_phase_screen_jaxbase1 = ft_sh_phase_screen_jax_nested
-ft_sh_phase_screen_jaxbase2 = ft_sh_phase_screen_jax_outer_scale
 
 @jax.jit
 def oneStepFresnel_jax(Uin, wvl, d1, z):
