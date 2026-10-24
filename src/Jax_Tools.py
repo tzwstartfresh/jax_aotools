@@ -72,7 +72,7 @@ def ft_sh_phase_screen_jax_nested(prngkey, r0, N, delta, L0, l0, batch_size=1, s
 @partial(jax.jit, static_argnames=['N', 'batch_size', 'sub_order', 'zoom_scale'])
 def ft_sh_phase_screen_jax_outer_scale(prngkey, r0, N, delta, L0, l0, batch_size=1, sub_order=7, zoom_scale=0.3):
     '''
-    Generate phase screens with outer-scale-aware sub-harmonic compensation.
+    Generate phase screens with outer-scale-adaptive sub-harmonic compensation.
     1. The batch_size argument enables one call to generate multiple screens.
     2. The non-uniform low-frequency grid is determined from L0 and the FFT
        low-frequency boundary.
@@ -86,7 +86,7 @@ def ft_sh_phase_screen_jax_outer_scale(prngkey, r0, N, delta, L0, l0, batch_size
     :param batch_size: Number of phase screens generated in one call.
     :param sub_order: Number of sub-harmonic orders.
     :param zoom_scale: Spatial scale factor for low-frequency synthesis.
-    :return: Phase screen with outer-scale-aware low-frequency compensation.
+    :return: Phase screen with outer-scale-adaptive low-frequency compensation.
     '''
     sub_samp = int(2 * sub_order + 1)
 
